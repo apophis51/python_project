@@ -8,12 +8,12 @@ For convience I have deployed the backend so that you can test the various endpo
 
 
 
-You can also test the app locally doing a git-pull and by pip installing the requirements.txt file. 
+You can also test the app locally doing a **git pull** and by pip installing the **requirements.txt** file. It's recomended that you use a virtual environment.
 
 
-**Note:** to run locally you will need to use my **.env** variables for the Database request (just send me an email if you want them for testing). I used a postgres database model to store the data on Supabase
+**Note:** to run locally you will need to use my **.env** variables for the Database request (just send me an email if you want them for testing). I used a postgres database model to store the data on Supabase.
 
-**Also:** The Remainder of the document assumes that your testing against my live deployed backend:
+**Also:** The Remainder of the document assumes that your testing against my live deployed backend.
 
 **Disclaimer:** I wasn't able to finish the unit test due to a busy work week, so I suppose I'll need to take a hit there
 
@@ -82,6 +82,25 @@ def logout():
 Make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app/blogs'
 
 This will send you back a json string with all the blog post. 
+The response should look similar to this: 
+```bash
+[
+    {
+        "author": "baa1844f-9f06-46ba-a4ce-594d486fc78c",
+        "content": "Look at Me I'm A BLOG!",
+        "created_at": "2024-07-19T09:49:38.891314+00:00",
+        "id": 10,
+        "title": "This is a Blog"
+    },
+    {
+        "author": "1600af95-6a9b-4006-9175-08f87aa841d3",
+        "content": "Isn't Nonsense Fun to Read?",
+        "created_at": "2024-07-19T09:50:33.147921+00:00",
+        "id": 11,
+        "title": "Look At Me I'm Another Blog"
+    }
+]
+```
 
 **Note:** This route is **protected** and get request will only work if you are **LoggedIN**
 
@@ -111,23 +130,43 @@ Make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app
 
 **example:** try making a get request to **https://pythonproject-production-bcef.up.railway.app/blogs/10**
 
+The response should look similar to this: 
+```bash
+[
+    {
+        "author": "baa1844f-9f06-46ba-a4ce-594d486fc78c",
+        "content": "Look at Me I'm A BLOG!",
+        "created_at": "2024-07-19T09:49:38.891314+00:00",
+        "id": 10,
+        "title": "This is a Blog"
+    }
+]
+```
+
 Again, any user can view any blog as long as the account is authenticated
 
 ## Make A Blog
 Make a **POST** request to  'https://pythonproject-production-bcef.up.railway.app/blogs[blogID]' and be sure to include the **title** and '**content** in the request body in raw **json** format 
 
-**example:** {"title":"This is a New Blog","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in"}
+**example:** 
+1) {"title":"This is a New Blog","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in"}
 
-Then make a GET request to Make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app/blogs'  and you should see your new blog in the response :)
+2) Then make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app/blogs' and you should see your new blog in the response :)
 
-**NOTE:** Any, user can make a blog as long as the account is authenticated
+**NOTE:** Any, user can make a blog as long as the account is authenticated.
 
 ## Edit A Blog
 Make a **PUT** request to  'https://pythonproject-production-bcef.up.railway.app/blogs[blogID]' and be sure to include the nd be sure to include the **title** and '**content** in the request body in raw **json** format 
 
-**example:** follow the login endpoint to login as {"username": "charlie51", "password":"applesauce"}.  Then make a put request to  https://pythonproject-production-bcef.up.railway.app/blogs10 to edit his blog with the new blog information {"title":"This is a New Blog","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in"}
+**example:** 
 
-Then Make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app/blogs/10'  and you should see your new blog in the response :)
+1) follow the login endpoint to login as {"username": "charlie51", "password":"applesauce"}.  
+
+2) Then make a **PUT** request to  https://pythonproject-production-bcef.up.railway.app/blogs10 to edit his blog with the new blog information
+
+   {"title":"This is a New Blog","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in"}
+
+3) Then Make a **GET** request to  'https://pythonproject-production-bcef.up.railway.app/blogs/10'  and you should see your new blog in the response :)
 
 **Note** Users can only edit blogs that they created! For that we use custom middleware to validate that the user is thw owner of the blog before the request is validated
 
