@@ -41,7 +41,7 @@ def register():
 ```
 
 ## Login Route
-Make a **POST** request to  'https://pythonproject-production-bcef.up.railway.app/login' and be sure to include the **username** and '**password** in the request body in raw **json** format 
+Make a **POST** request to  'https://pythonproject-production-bcef.up.railway.app/login' and be sure to include the **username** and '**password** in the request body in raw **json** format: 
 
 **example:** '{"username":"boss","password":"giveThatGuyTheJob"}
 
@@ -146,7 +146,7 @@ The response should look similar to this:
 Again, any user can view any blog as long as the account is authenticated
 
 ## Make A Blog
-Make a **POST** request to  'https://pythonproject-production-bcef.up.railway.app/blogs[blogID]' and be sure to include the **title** and '**content** in the request body in raw **json** format 
+Make a **POST** request to  'https://pythonproject-production-bcef.up.railway.app/blogs[blogID]' and be sure to include the **title** and '**content** in the request body in raw **json** format: 
 
 **example:** 
 1) {"title":"This is a New Blog","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in"}
