@@ -1,21 +1,21 @@
 # Hello Everyone and Welcome to the BackEnd Python API DEMO!
 
 
-For convience I have deployed the backend so that you can test the various endpoints using your favorite endpoint tester! (mine is [Postman](https://www.postman.com/))
+For convience I have deployed the backend so that you can test the various endpoints using your favorite endpoint tester! (mine is [Postman](https://www.postman.com/downloads/))
 
 
 
 
 
 
-You can also test the app locally doing a **git pull** and by pip installing the **requirements.txt** file. It's recomended that you use a virtual environment.
+You can also run the app locally doing a **git pull** and by pip installing the **requirements.txt** file. It's recomended that you use a virtual environment.
 
 
-**Note:** to run locally you will need to use my **.env** variables for the Database request (just send me an email if you want them for testing). I used a postgres database model to store the data on Supabase.
+**Note:** to run locally you will need to use my **.env** variables for the Database request (just send me an email if you want to run the app locally). I used a postgres database model to store the data on Supabase. However, running locally is not requirement if you decide to test against my live endpoint.
 
-**Also:** The Remainder of the document assumes that your testing against my live deployed backend.
+**Also:** The Remainder of the document assumes that your following along against my live deployed backend. We recommend using Postman(or similar) to demo my endpoints because we rely on jwts/cookies to store the session data. Browsers and Apps like Postman handle cookie transfers right out the box, but testing by other means (curl or requests library for example) might require more setup.
 
-**Disclaimer:** I wasn't able to finish the unit test due to a busy work week, so I suppose I'll need to take a hit there
+**Disclaimer:** I also wasn't able to finish the unit tests due to a busy work week, so I suppose I'll need to take a hit there
 
 ## Registration Route
 
